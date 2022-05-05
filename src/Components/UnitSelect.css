@@ -1,0 +1,30 @@
+/* * {
+    border: 2px solid red;
+} */
+
+.unit-select {
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    border-radius: 5%;
+    border: 2px solid grey;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 30rem;
+}
+
+.unit-select h2 {
+    text-align: center;
+}
+
+.unit-select__dropdown {
+    display: flex;
+    justify-content: center;
+}
+
+/* .unit-select select {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-self: center;
+} */

@@ -1,0 +1,34 @@
+.unit-profile {
+    background-color: slategray;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: .25rem;
+}
+
+.slot {
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    border-radius: 10%;
+    border: solid white;
+    width: 3rem;
+    text-align: center;
+}
+
+.unit-name {
+    margin-top: 2rem;
+    width: 5rem;
+}
+
+table, th, td {
+    border: 1px solid;
+  }
+
+table {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+h2 {
+    margin: auto;
+}

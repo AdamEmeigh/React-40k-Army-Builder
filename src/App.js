@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+// import Unit from './Components/Unit';
+import React, { useState } from 'react';
+import UnitList from './Components/UnitList';
+import Title from './Components/Title';
+import UnitSelect from './Components/UnitSelect';
 import './App.css';
 
-function App() {
+const App = () => {
+const [army, setArmy] = useState('')
+
+const addUnitHandler = (model) => {
+  setArmy((prevModels) => {
+    return [model, ...prevModels]
+  })
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='army-list'>
+      <Title />
+      <UnitSelect onAddUnit={addUnitHandler} />
+      {/* <Unit unit={unit} /> */}
+      <UnitList unit={army} />
     </div>
   );
 }
