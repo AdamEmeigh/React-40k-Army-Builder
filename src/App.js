@@ -10,7 +10,8 @@ const [army, setArmy] = useState('')
 
 const addUnitHandler = (model) => {
   setArmy((prevModels) => {
-    return [model, ...prevModels]
+    let armyList = [...prevModels, model];
+    return armyList.sort((a, b) => a.label - b.label)
   })
 }
 

@@ -3,7 +3,7 @@ import './UnitSelect.css';
 
 const units = [
     {
-      lable: 0,
+      label: 0,
       slot: "HQ",
       name: "High Marshal Helbrecht",
       move: 6,
@@ -18,7 +18,7 @@ const units = [
       cost: 160,
     },
     {
-      lable: 1,
+      label: 1,
       slot: "HQ",
       name: "The Emperor's Champion",
       move: 6,
@@ -33,7 +33,7 @@ const units = [
       cost: 100,
     },
     {
-      lable: 2,
+      label: 2,
       slot: "HQ",
       name: "Chaplain Grimaldus",
       move: 6,
@@ -48,7 +48,7 @@ const units = [
       cost: 140,
     },
     {
-      lable: 3,
+      label: 3,
       slot: "Tr",
       name: "Primaris Crusader Squad",
       move: 6,
@@ -63,7 +63,7 @@ const units = [
       cost: 175,
     },
     {
-      lable: 4,
+      label: 4,
       slot: "Tr",
       name: "Crusader Squad",
       move: 6,
@@ -78,7 +78,7 @@ const units = [
       cost: 90,
     },
     {
-      lable: 5,
+      label: 5,
       slot: "El",
       name: "Primaris Sword Brethren",
       move: 6,
@@ -101,6 +101,7 @@ const UnitSelect = (props) => {
         event.preventDefault();
 
         const unitData = {
+            label: units[event.target.value].label,
             slot: units[event.target.value].slot,
             name: units[event.target.value].name,
             move: units[event.target.value].move,
@@ -121,21 +122,20 @@ const UnitSelect = (props) => {
 
     }
 
+    const unitOptions = units.map((unit) => (
+      <option value={unit.label} key={unit.label}>{unit.name}</option>
+    )) 
+
     return (
-        <div className="unit-select">
-            <h2>Add Units</h2>
-                <div className='unit-select__dropdown'>
-                    <select onChange={dropdownUnitsHandler} value={setSelect}>
-                        <option value='99'>Select Unit...</option>
-                        <option value='0'>High Marshal Helbrecht</option>
-                        <option value='1'>The Emperor's Champion</option>
-                        <option value='2'>Chaplin Grimaldus</option>
-                        <option value='3'>Primaris Crusader Squad</option>
-                        <option value='4'>Crusader Squad</option>
-                        <option value='5'>Primaris Sword Brethren</option>
-                    </select>
-                </div>
-        </div>
+      <div className="unit-select">
+          <h2>Add Units</h2>
+            <div className='unit-select__dropdown'>
+                <select onChange={dropdownUnitsHandler} value={select}>
+                    <option value='99'>Select Unit...</option>
+                    {unitOptions}
+                </select>
+            </div>
+      </div>
     )
 };
 
