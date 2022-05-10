@@ -10,15 +10,15 @@ const [army, setArmy] = useState('')
 
 const addUnitHandler = (model) => {
   setArmy((prevModels) => {
-    return [model, ...prevModels]
+    const armyList = [model, ...prevModels];
+    return armyList.sort((a, b) => a.label - b.label)
   })
-}
+} 
 
   return (
     <div className='army-list'>
       <Title />
       <UnitSelect onAddUnit={addUnitHandler} />
-      {/* <Unit unit={unit} /> */}
       <UnitList unit={army} />
     </div>
   );
