@@ -13,13 +13,12 @@ const addUnitHandler = (model) => {
     let armyList = [...prevModels, model];
     return armyList.sort((a, b) => a.label - b.label)
   })
-}
+} 
 
   return (
     <div className='army-list'>
       <Title />
       <UnitSelect onAddUnit={addUnitHandler} />
-      {/* <Unit unit={unit} /> */}
       <UnitList unit={army} />
     </div>
   );

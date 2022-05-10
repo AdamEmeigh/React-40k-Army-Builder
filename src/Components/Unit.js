@@ -3,16 +3,6 @@ import React from 'react';
 import './Unit.css';
 
 const Unit = (props) => {
-    // const [name, setName] = useState(props.unit[0].name);
-
-    // const clickHandler = () => {
-    //     let i = Math.floor(Math.random() * 2);
-    //     if (i === 1) {
-    //         setName('Chosen by the Emperor');
-    //     } else {
-    //         setName('Heretic');
-    //     }
-    // }
 
     return (
             <li className='unit-profile'>
