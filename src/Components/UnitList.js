@@ -30,6 +30,7 @@ const UnitList = (props) => {
                         ld={stats.ld}
                         save={stats.save}
                         cost={stats.cost}
+                        deleteUnit={props.deleteUnit}
                     />
                 ))}
             </ul>

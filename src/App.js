@@ -11,7 +11,7 @@ const [army, setArmy] = useState([])
 const [buildError, setBuildError] = useState(false)
 
 const addUnitHandler = (model) => {
-  let unitIsValid = validSelection(model)
+  let unitIsValid = validateSelection(model)
   if (unitIsValid){
     setBuildError(false);
     setArmy((prevModels) => {
@@ -23,13 +23,20 @@ const addUnitHandler = (model) => {
   }
 } 
 
-const validSelection = (model) => {
+const removeUnitHandler = (model) => {
+  let findUnit = army.find(ele => ele.name === model.name)
+  let index = army.indexOf(findUnit)
+  let armyCopy = army
+  armyCopy.splice(index, 1)
+  setArmy([...armyCopy])
+}
+
+const validateSelection = (model) => {
   let existingUnits = army.filter(unit => unit.name === model.name)
   if (existingUnits.length < model.limit){
-    return true
-  }
-  else {
-    return false
+    return true;
+  } else {
+    return false;
   }
 }
 
@@ -38,7 +45,7 @@ const validSelection = (model) => {
       <Title />
       <UnitSelect onAddUnit={addUnitHandler} />
       {buildError && <UnitLimit />}
-      <UnitList unit={army} />
+      <UnitList unit={army} deleteUnit={removeUnitHandler} />
     </div>
   );
 }
