@@ -39,7 +39,7 @@ const Unit = (props) => {
                 </table>
                 <h2 className="slot">Cost</h2>
                 <h3 className="unit-name">{props.cost}</h3>
-                {/* <button onClick={clickHandler}>Heresy?</button> */}
+                <button onClick={(event) => props.onRemoveUnit(props)}>Remove</button>
             </li>
     );
 }

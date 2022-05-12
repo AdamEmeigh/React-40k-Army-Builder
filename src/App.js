@@ -32,12 +32,21 @@ const validSelection = (model) => {
   }
 }
 
+const handleRemove = (model) => {
+  const newArmy = army
+  const targetUnit = newArmy.find(element => element.name === model.name)
+  let index = army.indexOf(targetUnit)
+  newArmy.splice(index, 1)
+  setArmy([...newArmy])
+  }
+
+
   return (
     <div className='army-list'>
       <Title />
       <UnitSelect onAddUnit={addUnitHandler} />
       {buildError && <UnitLimit />}
-      <UnitList unit={army} />
+      <UnitList unit={army} onRemoveUnit={handleRemove} />
     </div>
   );
 }

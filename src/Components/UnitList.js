@@ -16,6 +16,7 @@ const UnitList = (props) => {
             <ul >
                 {props.unit.map((stats) => (
                     <Unit
+                        key={stats.label}
                         label={stats.label}
                         name={stats.name}
                         slot={stats.slot}
@@ -29,6 +30,7 @@ const UnitList = (props) => {
                         ld={stats.ld}
                         save={stats.save}
                         cost={stats.cost}
+                        onRemoveUnit={props.onRemoveUnit}
                     />
                 ))}
             </ul>
